@@ -2,32 +2,36 @@ local Zones = {}
 local Active = {}
 local Combo = nil
 
-
 local function UpdateComboZone(zone)
   if Combo == nil then
+
     Combo = ComboZone:Create({zone}, {name="combo", debugPoly=false})
-    Active[zone["name"]] = Combo
+    Active[zone["name"]] = zone
+    
+    Combo:onPlayerInOutExhaustive(function(isPointInside, point, insideZones, enteredZones, leftZones)
+
+      if enteredZones then
+        for i=1, #enteredZones do
+          --print("Entered: " ..enteredZones[i]["name"])
+          TriggerEvent("ps-zones:enter", enteredZones[i]["name"], enteredZones[i]["data"])
+          TriggerServerEvent("ps-zones:enter", enteredZones[i]["name"], enteredZones[i]["data"])
+        end
+      end
+  
+      if leftZones then
+        for i=1, #leftZones do
+          --print("Left: " ..leftZones[i]["name"])
+          TriggerEvent("ps-zones:leave", leftZones[i]["name"], leftZones[i]["data"])
+          TriggerServerEvent("ps-zones:leave", leftZones[i]["name"], leftZones[i]["data"])
+        end
+      end
+    end)
+
   else
-    Active[zone["name"]] = Combo:AddZone(zone)
+    Combo:AddZone(zone)
+    Active[zone["name"]] = zone
   end
 
-  Combo:onPlayerInOutExhaustive(function(isPointInside, point, insideZones, enteredZones, leftZones)
-    if enteredZones then
-      for i=1, #enteredZones do
-        --print("Entered: " ..enteredZones[i]["name"])
-        TriggerEvent("ps-zones:enter", enteredZones[i]["name"], enteredZones[i]["data"])
-        TriggerServerEvent("ps-zones:enter", enteredZones[i]["name"], enteredZones[i]["data"])
-      end
-    end
-
-    if leftZones then
-      for i=1, #leftZones do
-        --print("Left: " ..leftZones[i]["name"])
-        TriggerEvent("ps-zones:leave", leftZones[i]["name"], leftZones[i]["data"])
-        TriggerServerEvent("ps-zones:leave", leftZones[i]["name"], leftZones[i]["data"])
-      end
-    end
-  end)
 end
 
 local function ZoneExist(name)
