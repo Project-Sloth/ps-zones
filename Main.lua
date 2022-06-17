@@ -83,16 +83,15 @@ exports("DestroyZone", function(name)
   end
 end)
 
-RegisterCommand("box", function()
-    local ped = PlayerPedId()
-    local coords = GetEntityCoords(ped)
-    exports["ps-zones"]:CreateBoxZone("test", coords, 2.0, 2.0, {
-        debugPoly = false,
-        minZ = coords.z - 1,
-        maxZ = coords.z + 1,
-        debugColors = {
-            walls = {0, 0, 255}
-        }
+RegisterCommand("poly", function()
+    exports["ps-zones"]:CreatePolyZone("poly-test", {
+      vector2(-7.88, -1058.93),
+      vector2(0.03, -1058.67),
+      vector2(-3.75, -1054.05),
+    }, {
+        debugPoly = true,
+        minZ =  38.16 - 1,
+        maxZ =  38.16 + 1,
     })
 end)
 
