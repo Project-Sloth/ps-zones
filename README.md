@@ -4,6 +4,7 @@
 ## Each polyzone needs to have a UNIQUE NAME otherwise it will get triggered each time there is a zone.
 
 ## Events
+### These events are triggered when a player enters/leaves a zone.
 ### Client
 ```
 RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
@@ -16,11 +17,11 @@ end)
 ```
 ### Server
 ```
-RegisterNetEvent("ps-zones:enter", function(ZoneName, ZoneData)
+RegisterServerEvent("ps-zones:enter", function(ZoneName, ZoneData)
     -- Code here
 end)
 
-RegisterNetEvent("ps-zones:leave", function(ZoneName, ZoneData)
+RegisterServerEvent("ps-zones:leave", function(ZoneName, ZoneData)
     -- Code here
 end)
 ```
