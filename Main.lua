@@ -82,20 +82,3 @@ exports("DestroyZone", function(name)
     Active[name] = nil
   end
 end)
-
-RegisterCommand("poly", function()
-    exports["ps-zones"]:CreatePolyZone("poly-test", {
-      vector2(-7.88, -1058.93),
-      vector2(0.03, -1058.67),
-      vector2(-3.75, -1054.05),
-    }, {
-        debugPoly = true,
-        minZ =  38.16 - 1,
-        maxZ =  38.16 + 1,
-    })
-end)
-
-RegisterCommand("boxd", function()
-  exports["ps-zones"]:DestroyZone("test")
-end)
-

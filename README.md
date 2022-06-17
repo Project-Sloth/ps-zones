@@ -1,5 +1,8 @@
 # REQUIRED: https://github.com/mkafrin/PolyZone
 
+## Purpose
+### The purpose of this script is to create and handle polyzones more efficiently for zone enter/leave events. Every zone is added to a overarching combozone which greatly improves perfomance looping over the normal distance checking via coords/distance of a point.
+
 ## The data passed into the exports is optional and not required.
 ## Each polyzone needs to have a UNIQUE NAME otherwise it will get triggered each time there is a zone.
 
