@@ -30,13 +30,15 @@ end)
 ```
 ## Client Exports:
 ```
-exports["ps-zone"]:CreatePolyZone(name, points, data)
+exports["ps-zones"]:CreatePolyZone(name, points, data)
 
-exports["ps-zone"]:CreateBoxZone(name, point, length, width, data)
+exports["ps-zones"]:CreateBoxZone(name, point, length, width, data)
 
-exports["ps-zone"]:CreateCircleZone(name, point, radius, data)
+exports["ps-zones"]:CreateCircleZone(name, point, radius, data)
 
-exports["ps-zone"]:CreateEntityZone(name, entity, data)
+exports["ps-zones"]:CreateEntityZone(name, entity, data)
+
+exports["ps-zones"]:DestroyZone(name)
 ```
 
 
