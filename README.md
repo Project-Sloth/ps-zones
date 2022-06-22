@@ -62,6 +62,7 @@ RegisterCommand("box", function()
     local coords = GetEntityCoords(ped)
     exports["ps-zones"]:CreateBoxZone("box-test", coords, 2.0, 2.0, {
         debugPoly = true,
+        heading = 0.0,
         minZ = coords.z - 1,
         maxZ = coords.z + 1,
     })
