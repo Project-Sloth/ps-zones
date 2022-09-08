@@ -1,10 +1,15 @@
-# REQUIRED: https://github.com/mkafrin/PolyZone
+# ps-zones
+![image](https://user-images.githubusercontent.com/82112471/189185989-c33fb2c8-959d-4624-8d22-8e0cef703e93.png)
+
 
 ## Purpose
 ### The purpose of this script is to create and handle polyzones more efficiently for zone enter/leave events. Every zone is added to a overarching combozone which greatly improves perfomance looping over the normal distance checking via coords/distance of a point.
 
 ## The data passed into the exports is optional and not required.
-## Each polyzone needs to have a UNIQUE NAME otherwise it will get triggered each time there is a zone.
+## Each Polyzone needs to have a UNIQUE NAME otherwise it will get triggered each time there is a zone.
+
+# Dependency: 
+* [PolyZone](https://github.com/mkafrin/PolyZone)
 
 ## Events
 ### These events are triggered when a player enters/leaves a zone.
